@@ -10,10 +10,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { RewardCategoriesComponent } from './reward-categories/reward-categories.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    RewardCategoriesComponent
   ],
   imports: [
     BrowserModule,
