@@ -1,0 +1,10 @@
+#
+# node development gignore directories and files
+#
+node_modules
+build
+npm-debug.log
+.env
+.DS_Store
+
+
