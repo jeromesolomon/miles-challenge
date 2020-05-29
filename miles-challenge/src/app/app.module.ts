@@ -17,6 +17,9 @@ import { RewardCategoriesComponent } from './reward-categories/reward-categories
 // drag drop module
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
+// services
+import { RewardService } from './services/reward.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FlexLayoutModule,
     DragDropModule
   ],
-  providers: [],
+  providers: [RewardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
