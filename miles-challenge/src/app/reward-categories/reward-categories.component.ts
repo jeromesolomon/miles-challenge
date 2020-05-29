@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Category } from '../shared/category';
+
 @Component({
   selector: 'app-reward-categories',
   templateUrl: './reward-categories.component.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RewardCategoriesComponent implements OnInit {
 
+  // list of categories
+  categoryList: Category[];
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
