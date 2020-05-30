@@ -1,3 +1,8 @@
+<div>
+  <div class="reward-header-container"><h2>Rewards</h2></div>
+  <div class="category-header-container"><h2>Categories</h2></div>
+</div>
+
 <div class="reward-container">
     <h2>Rewards</h2>
   
@@ -8,7 +13,7 @@
       [cdkDropListConnectedTo]="[doneList]"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of categoryList; let i=index" cdkDrag>{{item.title}}</div>
+      <div class="reward-box" *ngFor="let item of categoryList; let i=index" cdkDrag>{{item.title}}</div>
     </div>
   </div>
   
@@ -22,6 +27,6 @@
       [cdkDropListConnectedTo]="[todoList]"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of categoryList; let i=index" cdkDrag>{{item.title}}</div>
+      <div class="reward-box" *ngFor="let item of categoryList; let i=index" cdkDrag>{{item.title}}</div>
     </div>
   </div>

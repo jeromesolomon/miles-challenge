@@ -4,6 +4,21 @@ $background-dark: #512DA8;
 $background-light: #9575CD;
 $background-pale: #D1C4E9;
 
+.reward-header-container {
+  width: 100px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.category-header-container {
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .reward-container {
   width: 100px;
   max-width: 100%;
@@ -18,6 +33,20 @@ $background-pale: #D1C4E9;
   margin: 0 25px 25px 0;
   display: inline-block;
   vertical-align: top;
+}
+
+.reward-box {
+  width: 65px;
+  height: 65px;
+  border: solid 2px $background-dark;
+  cursor: move;
+  background: $lt-gray;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 4px;
+  margin-right: 25px;
 }
 
 .example-container {
@@ -76,19 +105,7 @@ $background-pale: #D1C4E9;
 }
 
 
-.reward-box {
-    width: 100px;
-    height: 100px;
-    border: solid 2px $background-dark;
-    cursor: move;
-    background: $lt-gray;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border-radius: 4px;
-    margin-right: 25px;
-  }
+
 
 
   
