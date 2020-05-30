@@ -4,6 +4,21 @@ $background-dark: #512DA8;
 $background-light: #9575CD;
 $background-pale: #D1C4E9;
 
+.grid-container {
+  display: grid;
+  grid-template-rows: 80px;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
 .reward-box {
     width: 100px;
     height: 100px;
@@ -17,4 +32,6 @@ $background-pale: #D1C4E9;
     border-radius: 4px;
     margin-right: 25px;
   }
+
+
   

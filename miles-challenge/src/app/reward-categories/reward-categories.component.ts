@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 import { Category } from '../shared/category';
 
@@ -12,8 +13,9 @@ import { RewardService } from '../services/reward.service';
 })
 export class RewardCategoriesComponent implements OnInit {
 
-  // list of categories
+  // list of categories & rewards
   categoryList: Category[];
+  rewardList: Category[];
 
   constructor(private rewardService: RewardService) { }
 
@@ -21,7 +23,23 @@ export class RewardCategoriesComponent implements OnInit {
 
     // fetch dishes from dish service
     this.categoryList = this.rewardService.getCategoryList();
+    this.rewardList = this.rewardService.getRewardList();
 
+  }
+
+  //
+  // Func: drop
+  // Desc: hanles drop event of rewards
+  //
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
   }
 
 
