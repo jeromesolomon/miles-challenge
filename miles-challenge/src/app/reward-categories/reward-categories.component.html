@@ -9,7 +9,7 @@
     <div
       cdkDropList
       #rewardDropZone="cdkDropList"
-      [cdkDropListData]="todo"
+      [cdkDropListData]="rewardList"
       [cdkDropListConnectedTo]="[categoryDropZone]"
       class="category-list"
       (cdkDropListDropped)="drop($event)">
@@ -23,7 +23,7 @@
     <div
       cdkDropList
       #categoryDropZone="cdkDropList"
-      [cdkDropListData]="done"
+      [cdkDropListData]="categoryList"
       [cdkDropListConnectedTo]="[rewardDropZone]"
       class="category-list"
       (cdkDropListDropped)="drop($event)">
@@ -32,4 +32,4 @@
   </div>
 
 
-  <pre>{{todo | json}}</pre>
+  <pre>{{rewardList | json}}</pre>
