@@ -22,12 +22,13 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 // services
 import { RewardService } from './services/reward.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    RewardCategoriesComponent
+    RewardCategoriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,7 @@ import { RewardService } from './services/reward.service';
     FlexLayoutModule,
     DragDropModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [RewardService],
   bootstrap: [AppComponent]

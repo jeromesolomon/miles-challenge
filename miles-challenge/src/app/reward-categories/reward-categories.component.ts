@@ -3,6 +3,9 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem} from '@a
 
 import { Category } from '../shared/category';
 import { Reward } from '../shared/reward';
+import { DragAction } from '../shared/dragAction';
+
+import { Stack } from 'stack-typescript';
 
 // services
 import { RewardService } from '../services/reward.service';
@@ -16,6 +19,9 @@ export class RewardCategoriesComponent implements OnInit {
 
   // list of categories & rewards
   categoryList: Category[];
+
+  // stack of operations
+  actionStack: Stack<boolean>;
 
   constructor(private rewardService: RewardService) { }
 
@@ -69,6 +75,8 @@ export class RewardCategoriesComponent implements OnInit {
       console.log("previousContainerID =", event.previousContainer.id);
       console.log("containerID =", event.container.id);
 
+      console.log("categoryList = ", this.categoryList);
+
 
       //
       // there are 3 cases and behaviors for the rewards
@@ -95,7 +103,31 @@ export class RewardCategoriesComponent implements OnInit {
         event.previousContainer.data.splice(event.previousIndex,1);
       }
 
+      //
+      // save action to stack
+      //
+
     }
+
+  }
+
+  //
+  // Func: undoButton
+  // Desc: handles undo button click
+  //
+  undoButton(event: Event) {
+
+    console.log("undo");
+
+  }
+
+    //
+  // Func: undoButton
+  // Desc: handles undo button click
+  //
+  redoButton(event: Event) {
+
+    console.log("redo");
 
   }
 
