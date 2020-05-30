@@ -1,5 +1,5 @@
-<div class="example-container">
-    <h2>To do</h2>
+<div class="reward-container">
+    <h2>Rewards</h2>
   
     <div
       cdkDropList
@@ -8,12 +8,12 @@
       [cdkDropListConnectedTo]="[doneList]"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of categoryList" cdkDrag>{{item.title}}</div>
+      <div class="example-box" *ngFor="let item of categoryList; let i=index" cdkDrag>{{item.title}}</div>
     </div>
   </div>
   
-  <div class="example-container">
-    <h2>Done</h2>
+  <div class="category-container" *ngFor="let item of categoryList; let i=index">
+    <h2>{{item.title}}</h2>
   
     <div
       cdkDropList
@@ -22,6 +22,6 @@
       [cdkDropListConnectedTo]="[todoList]"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of categoryList" cdkDrag>{{item.title}}</div>
+      <div class="example-box" *ngFor="let item of categoryList; let i=index" cdkDrag>{{item.title}}</div>
     </div>
   </div>
