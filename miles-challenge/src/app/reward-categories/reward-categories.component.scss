@@ -59,7 +59,8 @@ $background-pale: #D1C4E9;
   min-width: 40px;
   height: 40px;
   min-height: 40px;
-  border: 2px solid $lt-gray;
+  color:floralwhite;
+  // border: 2px solid $lt-gray;
 }
 
 .close-button-disabled {
@@ -69,7 +70,6 @@ $background-pale: #D1C4E9;
   min-width: 40px;
   height: 40px;
   min-height: 40px;
-  border: 2px solid $background-pale;
   z-index: -1;
 }
 
