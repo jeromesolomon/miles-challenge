@@ -57,30 +57,46 @@ export class RewardCategoriesComponent implements OnInit {
   // Func: dropReward
   // Desc: hanles drop event of rewards
   //
-  dropReward(event: CdkDragDrop<string[]>, categoryIndex: number) {
+  dropReward(event: CdkDragDrop<string[]>) {
+
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
     } else {
 
       // if on first category (the rewards row) then copy the item, otherwise transferMove the item
       console.log("event = ", event);
-      console.log("categoryIndex =", categoryIndex);
+      console.log("previousContainerID =", event.previousContainer.id);
+      console.log("containerID =", event.container.id);
 
-      // copy the item, if you are not copying it to the rewards category/column
-      if (categoryIndex != 0) {
+
+      //
+      // there are 3 cases and behaviors for the rewards
+      //
+
+      // case 1. copy the reward if it is being dragged from the main reward list, to a category
+      if ((event.previousContainer.id == "0") && (event.container.id != "0")) {
         copyArrayItem(event.previousContainer.data,
-                          event.container.data,
-                          event.previousIndex,
-                          event.currentIndex);
-      } else {
-        // remove the element
-        event.previousContainer.data.splice(event.previousIndex,1);
-        console.log("detele");
+          event.container.data,
+          event.previousIndex,
+          event.currentIndex);
       }
 
-      
+      // case 2. move/transfer the reward if it is being dragged from the main reward list, to a category
+      if ((event.previousContainer.id != "0") && (event.container.id != "0")) {
+        transferArrayItem(event.previousContainer.data,
+          event.container.data,
+          event.previousIndex,
+          event.currentIndex);
+      }
+
+      // case 3. remove the reward, if it is being copied back into the main reward list
+      if ((event.previousContainer.id != "0") && (event.container.id == "0")) {
+        event.previousContainer.data.splice(event.previousIndex,1);
+      }
 
     }
+
   }
 
 
