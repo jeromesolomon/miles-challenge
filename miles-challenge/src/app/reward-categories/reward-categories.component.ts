@@ -66,18 +66,19 @@ export class RewardCategoriesComponent implements OnInit {
       console.log("event = ", event);
       console.log("categoryIndex =", categoryIndex);
 
-
-      if (true) {
+      // copy the item, if you are not copying it to the rewards category/column
+      if (categoryIndex != 0) {
         copyArrayItem(event.previousContainer.data,
                           event.container.data,
                           event.previousIndex,
                           event.currentIndex);
       } else {
-          transferArrayItem(event.previousContainer.data,
-            event.container.data,
-            event.previousIndex,
-            event.currentIndex);
+        // remove the element
+        event.previousContainer.data.splice(event.previousIndex,1);
+        console.log("detele");
       }
+
+      
 
     }
   }
