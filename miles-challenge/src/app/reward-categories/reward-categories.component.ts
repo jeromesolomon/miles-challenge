@@ -17,6 +17,7 @@ export class RewardCategoriesComponent implements OnInit {
   // list of categories & rewards
   categoryList: Category[];
   rewardList: Reward[];
+  categoryTable: Array<Array<Reward>>;
 
   // categories
   cat1: Reward[];
@@ -28,7 +29,7 @@ export class RewardCategoriesComponent implements OnInit {
     // fetch dishes from dish service
     this.categoryList = this.rewardService.getCategoryList();
     this.rewardList = this.rewardService.getRewardList();
-    this.cat1 = [];
+    this.categoryTable = [[],[]];
 
   }
 

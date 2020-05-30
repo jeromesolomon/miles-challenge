@@ -18,7 +18,21 @@
   </div>
   
   <div class="category-container">
-    <h2>C1</h2>
+    <h2>C</h2>
+  
+    <div
+      cdkDropList
+      #categoryDropZone="cdkDropList"
+      [cdkDropListData]="categoryTable[0]"
+      [cdkDropListConnectedTo]="[rewardDropZone]"
+      class="category-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="reward-box" *ngFor="let reward of categoryTable[0]; let i=index" cdkDrag>{{reward.title}}</div>
+    </div>
+  </div>
+
+  <div class="category-container">
+    <h2>C2</h2>
   
     <div
       cdkDropList
@@ -33,4 +47,4 @@
 
 
   <pre>rewardList = {{rewardList | json}}</pre>
-  <pre>cat1 = {{cat1 | json}}</pre>
+  <pre>categoryTable[0] = {{categoryTable[0] | json}}</pre>
