@@ -7,4 +7,6 @@ npm-debug.log
 .env
 .DS_Store
 
-
+# firebase files to ignore
+.firebase*
+firebase.json
