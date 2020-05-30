@@ -1,4 +1,4 @@
-deploy front end
+[done] deploy front end
 test on mobile
 prepare github repo, and send make it public for them to see
 draft email so you can send it before deadline with link to deploy site and github
@@ -7,7 +7,7 @@ undo/redo button
 save to backend/node js file, restfuAPI/json, or graphQL
 polish look/feel of app/page
 
-ask if multple rewards, can be applied to category
+ask if multple rewards or unlimited, can be applied to category
 
 
 
