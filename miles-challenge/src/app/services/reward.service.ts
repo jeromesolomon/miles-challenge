@@ -19,12 +19,4 @@ export class RewardService {
     return CATEGORYLIST;
   }
 
-  //
-  // Func: getRewardList
-  // Desc: returns reward list
-  //
-  getRewardList(): Reward[] {
-    return REWARDLIST;
-  }
-
 }

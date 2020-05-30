@@ -1,25 +1,36 @@
+import { REWARDLIST } from './RewardList';
 import { Category } from './Category';
 
 export const CATEGORYLIST: Category[] = 
 [
-    {
-      "title": "C1",
-      "id": 0
-    },
-    {
-      "title": "C2",
-      "id": 1
-    },
-    {
-      "title": "C3",
-      "id": 2
-    },
-    {
-      "title": "C4",
-      "id": 3
-    },
-    {
-      "title": "C5",
-      "id": 4
-    }
-  ];
+  {
+    "title": "Rewards",
+    "id": 0,
+    "rewardList": REWARDLIST
+  },
+  {
+    "title": "C1",
+    "id": 1,
+    "rewardList": []
+  },
+  {
+    "title": "C2",
+    "id": 2,
+    "rewardList": []
+  },
+  {
+    "title": "C3",
+    "id": 4,
+    "rewardList": []
+  },
+  {
+    "title": "C4",
+    "id": 5,
+    "rewardList": []
+  },
+  {
+    "title": "C5",
+    "id": 6,
+    "rewardList": []
+  }
+];

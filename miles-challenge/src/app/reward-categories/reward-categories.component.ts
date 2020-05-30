@@ -16,21 +16,23 @@ export class RewardCategoriesComponent implements OnInit {
 
   // list of categories & rewards
   categoryList: Category[];
-  rewardList: Reward[];
-  categoryTable: Array<Array<Reward>>;
-
-  // categories
-  cat1: Reward[];
 
   constructor(private rewardService: RewardService) { }
 
   ngOnInit(): void {
 
-    // fetch dishes from dish service
-    this.categoryList = this.rewardService.getCategoryList();
-    this.rewardList = this.rewardService.getRewardList();
-    this.categoryTable = [[],[]];
 
+    // initalize data structures
+    this.categoryList = this.rewardService.getCategoryList();
+
+  }
+
+  //
+  // Func: GetCategoryArray
+  // Desc: gets a category array
+  //
+  GetCategoryArray(i: number) {
+    return "categoryList[" + i + "]";
   }
 
   //
