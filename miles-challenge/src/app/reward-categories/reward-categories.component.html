@@ -8,25 +8,28 @@
   
     <div
       cdkDropList
-      #todoList="cdkDropList"
+      #rewardDropZone="cdkDropList"
       [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
+      [cdkDropListConnectedTo]="[categoryDropZone]"
+      class="category-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="reward-box" *ngFor="let item of categoryList; let i=index" cdkDrag>{{item.title}}</div>
+      <div class="reward-box" *ngFor="let reward of rewardList; let i=index" cdkDrag>{{reward.title}}</div>
     </div>
   </div>
   
-  <div class="category-container" *ngFor="let item of categoryList; let i=index">
-    <h2>{{item.title}}</h2>
+  <div class="category-container" *ngFor="let category of categoryList; let i=index">
+    <h2>{{category.title}}</h2>
   
     <div
       cdkDropList
-      #doneList="cdkDropList"
+      #categoryDropZone="cdkDropList"
       [cdkDropListData]="done"
-      [cdkDropListConnectedTo]="[todoList]"
-      class="example-list"
+      [cdkDropListConnectedTo]="[rewardDropZone]"
+      class="category-list"
       (cdkDropListDropped)="drop($event)">
       <div class="reward-box" *ngFor="let item of categoryList; let i=index" cdkDrag>{{item.title}}</div>
     </div>
   </div>
+
+
+  <pre>{{todo | json}}</pre>
