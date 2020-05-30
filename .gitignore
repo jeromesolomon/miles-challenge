@@ -7,4 +7,7 @@ npm-debug.log
 .env
 .DS_Store
 
-
+# ignore firebase hosting files
+.firebase
+firebase*
+.firebaserc
