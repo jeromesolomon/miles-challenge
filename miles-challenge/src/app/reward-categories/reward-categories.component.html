@@ -17,7 +17,7 @@
       [id]="category.id"
       #categoryDropZone="cdkDropList"
       [cdkDropListData]="category.rewardList"
-      (cdkDropListDropped)="drop($event)">
+      (cdkDropListDropped)="dropReward($event, i)">
       <!-- loop through each column -->
       <mat-card class="reward-card" *ngFor="let reward of categoryList[i].rewardList; let j=index" cdkDrag>
         <mat-card-actions class="reward-card-actions">

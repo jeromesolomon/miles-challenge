@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem, copyArrayItem} from '@angular/cdk/drag-drop';
 
 import { Category } from '../shared/category';
 import { Reward } from '../shared/reward';
@@ -33,7 +33,7 @@ export class RewardCategoriesComponent implements OnInit {
   //
   closeReward(event: Event, categoryIndex: number, rewardIndex: number) {
 
-    console.log(event);
+    console.log("event = ", event);
     console.log("categoryIndex = ", categoryIndex);
     console.log("rewardIndex = ", rewardIndex);
 
@@ -47,23 +47,38 @@ export class RewardCategoriesComponent implements OnInit {
     console.log("targetArray = ",targetArray);
     console.log("currentArray = ",currentArray);
 
-    // move the element
-    transferArrayItem(currentArray, targetArray, currentIndex, targetIndex);
+    // remove the element
+    currentArray.splice(rewardIndex,1);
+    
 
   }
 
   //
-  // Func: drop
+  // Func: dropReward
   // Desc: hanles drop event of rewards
   //
-  drop(event: CdkDragDrop<string[]>) {
+  dropReward(event: CdkDragDrop<string[]>, categoryIndex: number) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem(event.previousContainer.data,
-                        event.container.data,
-                        event.previousIndex,
-                        event.currentIndex);
+
+      // if on first category (the rewards row) then copy the item, otherwise transferMove the item
+      console.log("event = ", event);
+      console.log("categoryIndex =", categoryIndex);
+
+
+      if (true) {
+        copyArrayItem(event.previousContainer.data,
+                          event.container.data,
+                          event.previousIndex,
+                          event.currentIndex);
+      } else {
+          transferArrayItem(event.previousContainer.data,
+            event.container.data,
+            event.previousIndex,
+            event.currentIndex);
+      }
+
     }
   }
 
