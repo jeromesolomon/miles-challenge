@@ -1,3 +1,8 @@
+<div class="controls">
+  <button class="controlButton" (click)="undoButton($event)"><i class="fa fa-undo fa-lg"></i> Undo</button>
+  <button class="controlButton" (click)="redoButton($event)"><i class="fa fa-repeat fa-lg"></i> Redo</button>
+</div>
+
 <div>
   <div class="reward-header-container"><h2>Rewards</h2></div>
   <div class="category-header-container"><h2>Categories</h2></div>
@@ -17,23 +22,24 @@
       [id]="category.id"
       #categoryDropZone="cdkDropList"
       [cdkDropListData]="category.rewardList"
-      (cdkDropListDropped)="drop($event)">
+      (cdkDropListDropped)="dropReward($event)">
       <!-- loop through each column -->
       <mat-card class="reward-card" *ngFor="let reward of categoryList[i].rewardList; let j=index" cdkDrag>
         <mat-card-actions class="reward-card-actions">
-          <button mat-button class="close-button" (click)="closeReward($event, i, j)">
-            &times;
+          <button mat-button class="close-button" *ngIf="(i!=0); else elseBlock" (click)="closeReward($event, i, j)">
+            <span class="fa fa-window-close fa-lg"></span>
           </button>
+          <ng-template #elseBlock><button mat-button class="close-button-disabled" disabled></button></ng-template>
        </mat-card-actions>
         <mat-card-title>{{reward.title}}</mat-card-title>
-
       </mat-card>
   </div>
 
   </div>
 </div>
 
-
+<!-- debug
 <pre>catagoryList = {{categoryList | json}}</pre>
+--->
 
 

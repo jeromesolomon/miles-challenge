@@ -1,0 +1,32 @@
+[done] deploy front end
+[done] test on mobile
+[done] prepare github repo, and send make it public for them to see
+
+[] setup draft email w/ boomerang so you can send it before deadline with link to deploy site and github
+[] undo/redo button
+[] save to backend/node js file, restfuAPI/json, or graphQL
+[] polish look/feel of app/page, add font-awesome icons, sass code cleanup, global variables for sass, look at web page confus
+
+ask if multple rewards or unlimited, can be applied to category
+
+-- draft email --
+
+QUESTIONS:
+What is the earliest date you can start?
+Do you need visa sponsorship or transfer? If yes, please state the type of visa you are currently on and would need a transfer for?
+We are expecting candidates to commute to our Redwood City office once the Shelter-In-Place orders are lifted and its safe for employees to do so. Please let us know if this is not possible for you.
+
+
+web application is: https://miles-challenge-26b35.web.app/
+github is: https://github.com/jeromesolomon/miles-challenge
+
+Submit info to form here:  https://app2.greenhouse.io/tests/c3e8ccf24a8f43d0a25ae60a97b74fbb?utm_medium=email&utm_source=TakeHomeTest
+
+
+
+
+
+
+ 
+
+

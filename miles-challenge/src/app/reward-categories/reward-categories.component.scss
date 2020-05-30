@@ -3,11 +3,22 @@ $lt-gray: #ddd;
 $background-dark: #512DA8;
 $background-light: #9575CD;
 $background-pale: #D1C4E9;
+$primary-color-light:  #D1C4E9;
+
+.controls {
+  background: $primary-color-light;
+  padding: 10px;
+}
+
+.controlButton {
+  margin: 0px 10px 0px 10px;
+  padding: 5px;
+}
 
 .reward-header-container {
   width: 100px;
   max-width: 100%;
-  margin: 0 25px 25px 0;
+  margin: 0px 25px 25px 0px;
   display: inline-block;
   vertical-align: top;
 }
@@ -59,7 +70,18 @@ $background-pale: #D1C4E9;
   min-width: 40px;
   height: 40px;
   min-height: 40px;
-  border: 2px solid $lt-gray;
+  color:floralwhite;
+  // border: 2px solid $lt-gray;
+}
+
+.close-button-disabled {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  z-index: -1;
 }
 
 

@@ -20,17 +20,17 @@ export const CATEGORYLIST: Category[] =
   },
   {
     "title": "C3",
-    "id": 4,
+    "id": 3,
     "rewardList": []
   },
   {
     "title": "C4",
-    "id": 5,
+    "id": 4,
     "rewardList": []
   },
   {
     "title": "C5",
-    "id": 6,
+    "id": 5,
     "rewardList": []
   }
 ];
