@@ -17,13 +17,13 @@
     </div>
   </div>
   
-  <div class="category-container" *ngFor="let category of categoryList; let i=index">
-    <h2>{{category.title}}</h2>
+  <div class="category-container">
+    <h2>C1</h2>
   
     <div
       cdkDropList
       #categoryDropZone="cdkDropList"
-      [cdkDropListData]="categoryList"
+      [cdkDropListData]="rewardList"
       [cdkDropListConnectedTo]="[rewardDropZone]"
       class="category-list"
       (cdkDropListDropped)="drop($event)">

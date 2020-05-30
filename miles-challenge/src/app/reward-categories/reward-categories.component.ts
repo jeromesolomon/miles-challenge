@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 import { Category } from '../shared/category';
+import { Reward } from '../shared/reward';
 
 // services
 import { RewardService } from '../services/reward.service';
@@ -15,7 +16,7 @@ export class RewardCategoriesComponent implements OnInit {
 
   // list of categories & rewards
   categoryList: Category[];
-  rewardList: Category[];
+  rewardList: Reward[];
 
   constructor(private rewardService: RewardService) { }
 
