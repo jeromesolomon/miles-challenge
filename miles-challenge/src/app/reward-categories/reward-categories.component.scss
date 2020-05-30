@@ -35,6 +35,34 @@ $background-pale: #D1C4E9;
   vertical-align: top;
 }
 
+.reward-card {
+  background: $background-pale;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 5px 0px 5px 0px;
+  padding: 5px 0px 5px 0px;
+}
+
+.reward-card-actions {
+  justify-content: right;
+  align-items: right;
+  text-align: right;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+}
+
+.close-button {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  border: 2px solid $lt-gray;
+}
+
+
 .reward-box {
   width: 65px;
   height: 65px;
@@ -56,37 +84,6 @@ $background-pale: #D1C4E9;
   border-radius: 4px;
   overflow: hidden;
   display: block;
-}
-
-.example-container {
-  width: 400px;
-  max-width: 100%;
-  margin: 0 25px 25px 0;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.example-list {
-  border: solid 1px $background-light;
-  min-height: 60px;
-  background: $lt-gray;
-  border-radius: 4px;
-  overflow: hidden;
-  display: block;
-}
-
-.example-box {
-  padding: 20px 10px;
-  border-bottom: solid 1px #ccc;
-  color: rgba(0, 0, 0, 0.87);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-  cursor: move;
-  background: white;
-  font-size: 14px;
 }
 
 .cdk-drag-preview {

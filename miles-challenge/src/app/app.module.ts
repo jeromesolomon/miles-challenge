@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 import 'hammerjs';
 import { HeaderComponent } from './header/header.component';
@@ -33,7 +35,9 @@ import { RewardService } from './services/reward.service';
     BrowserAnimationsModule,
     MatToolbarModule,
     FlexLayoutModule,
-    DragDropModule
+    DragDropModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [RewardService],
   bootstrap: [AppComponent]

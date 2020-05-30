@@ -28,11 +28,28 @@ export class RewardCategoriesComponent implements OnInit {
   }
 
   //
-  // Func: GetCategoryArray
-  // Desc: gets a category array
+  // Func: closeReward
+  // Desc: closes a reward by transfering item back to the rewards list
   //
-  GetCategoryArray(i: number) {
-    return "categoryList[" + i + "]";
+  closeReward(event: Event, categoryIndex: number, rewardIndex: number) {
+
+    console.log(event);
+    console.log("categoryIndex = ", categoryIndex);
+    console.log("rewardIndex = ", rewardIndex);
+
+    // the first list is the main rewards list
+    let currentArray = this.categoryList[categoryIndex].rewardList;
+    let targetArray = this.categoryList[0].rewardList;
+    
+    let currentIndex = rewardIndex;
+    let targetIndex = targetArray.length; // put into last element
+    
+    console.log("targetArray = ",targetArray);
+    console.log("currentArray = ",currentArray);
+
+    // move the element
+    transferArrayItem(currentArray, targetArray, currentIndex, targetIndex);
+
   }
 
   //
