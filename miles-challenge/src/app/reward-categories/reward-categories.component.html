@@ -21,9 +21,10 @@
       <!-- loop through each column -->
       <mat-card class="reward-card" *ngFor="let reward of categoryList[i].rewardList; let j=index" cdkDrag>
         <mat-card-actions class="reward-card-actions">
-          <button mat-button class="close-button" (click)="closeReward($event, i, j)">
+          <button mat-button class="close-button" *ngIf="(i!=0); else elseBlock" (click)="closeReward($event, i, j)">
             &times;
           </button>
+          <ng-template #elseBlock><button mat-button class="close-button-disabled" disabled></button></ng-template>
        </mat-card-actions>
         <mat-card-title>{{reward.title}}</mat-card-title>
 

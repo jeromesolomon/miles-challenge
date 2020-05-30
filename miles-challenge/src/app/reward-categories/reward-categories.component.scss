@@ -62,6 +62,16 @@ $background-pale: #D1C4E9;
   border: 2px solid $lt-gray;
 }
 
+.close-button-disabled {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  min-height: 40px;
+  border: 2px solid $background-pale;
+}
+
 
 .reward-box {
   width: 65px;
