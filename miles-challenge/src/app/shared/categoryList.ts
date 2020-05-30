@@ -4,7 +4,7 @@ import { Category } from './Category';
 export const CATEGORYLIST: Category[] = 
 [
   {
-    "title": "Rewards",
+    "title": "",
     "id": 0,
     "rewardList": REWARDLIST
   },

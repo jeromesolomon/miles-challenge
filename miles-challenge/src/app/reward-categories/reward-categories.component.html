@@ -3,22 +3,28 @@
   <div class="category-header-container"><h2>Categories</h2></div>
 </div>
 
-<div class="reward-container">
+<div cdkDropListGroup>
+<div class="reward-container" *ngFor="let category of categoryList; let i=index">
   
-  <div class="category-container" *ngFor="let category of categoryList; let i=index">
-    <h2>{{category.title}}</h2>
-  
+    <!-- display header for each column -->
+    <div *ngIf="(i==0); else elseBlock"><h2>&nbsp;</h2></div>
+    <ng-template #elseBlock><h2>{{category.title}}</h2></ng-template>
+    
+    <!-- draggable items -->
     <div
       cdkDropList
+      [id]="category.id"
       #categoryDropZone="cdkDropList"
-      [cdkDropListData]="GetCategoryArray(i)"
+      [cdkDropListData]="category.rewardList"
       class="category-list"
       (cdkDropListDropped)="drop($event)">
+      <!-- loop through each column -->
       <div class="reward-box" *ngFor="let reward of categoryList[i].rewardList; let j=index" cdkDrag>{{reward.title}}</div>
     </div>
-  </div>
 
 </div>
+</div>
+
 
 <pre>catagoryList = {{categoryList | json}}</pre>
 
