@@ -18,6 +18,9 @@ export class RewardCategoriesComponent implements OnInit {
   categoryList: Category[];
   rewardList: Reward[];
 
+  // categories
+  cat1: Reward[];
+
   constructor(private rewardService: RewardService) { }
 
   ngOnInit(): void {
@@ -25,6 +28,7 @@ export class RewardCategoriesComponent implements OnInit {
     // fetch dishes from dish service
     this.categoryList = this.rewardService.getCategoryList();
     this.rewardList = this.rewardService.getRewardList();
+    this.cat1 = [];
 
   }
 
