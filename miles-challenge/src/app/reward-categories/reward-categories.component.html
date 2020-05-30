@@ -1,6 +1,19 @@
 <div class="controls">
-  <button class="controlButton" (click)="undoButton($event)"><i class="fa fa-undo fa-lg"></i> Undo</button>
-  <button class="controlButton" (click)="redoButton($event)"><i class="fa fa-repeat fa-lg"></i> Redo</button>
+
+  <span *ngIf="undoButtonEnable; else elseBlockUndo">
+      <button class="controlButton" (click)="undoButton($event)"><i class="fa fa-undo fa-lg"></i> Undo</button>
+  </span>
+  <ng-template #elseBlockUndo>
+      <button class="controlButton" disabled><i class="fa fa-undo fa-lg"></i> Undo</button>
+  </ng-template>
+
+  <span *ngIf="redoButtonEnable; else elseBlockRedo">
+    <button class="controlButton" (click)="redoButton($event)"><i class="fa fa-repeat fa-lg"></i> Redo</button>
+  </span>
+  <ng-template #elseBlockRedo>
+    <button class="controlButton" disabled><i class="fa fa-repeat fa-lg"></i> Redo</button>
+  </ng-template>
+  
 </div>
 
 <div>
