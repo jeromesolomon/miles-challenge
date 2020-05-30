@@ -1,72 +1,27 @@
-
-<div class="grid-container">
-    <div class="row">
-        <div class="col">
-            <div>2</div>
-            <div>3</div>  
-        </div>
-
-        <div class="col">
-            <div>5</div>
-            <div>6</div>  
-            <div>7</div>
-<       /div>
-    </div>
-</div>
-
-<div class="flex">
-    <div class="grid-container">
-        <div class="grid">
-            <!-- original rewards column -->
-            <div class="col hdr reward-header">Reward</div>
-            <div class="reward-cell" [style.grid-row]="i+2" *ngFor="let rew of rewardList; let i=index">{{rew.title}}</div>
-
-                        <!-- original rewards column -->
-                        <div class="col hdr reward-header">Reward</div>
-                        <div class="reward-cell" [style.grid-row]="i+2" *ngFor="let rew of rewardList; let i=index">{{rew.title}}</div>
-            
-
-        </div>
-    </div>
-</div>
-
-ENDOFTESTAREA
-
-<div cdkDropListGroup>
-    <div class="example-container">
-      <h2>Rewards</h2>
+<div class="example-container">
+    <h2>To do</h2>
   
-      <div
-        cdkDropList
-        [cdkDropListData]="rewardList"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="reward-box" *ngFor="let rew of rewardList; let i=index" cdkDrag>{{rew.title}}</div>
-      </div>
-    </div>
-  
-    <div class="example-container">
-      <h2>Done</h2>
-  
-      <div
-        cdkDropList
-        [cdkDropListData]="categoryList"
-        class="example-list"
-        (cdkDropListDropped)="drop($event)">
-        <div class="reward-box" *ngFor="let cat of categoryList; let i=index" cdkDrag>{{cat.title}}</div>
-      </div>
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of categoryList" cdkDrag>{{item.title}}</div>
     </div>
   </div>
-
-<div class="row" *ngFor="let cat of categoryList; let i=index">
-        {{cat.title}}
-        {{i}}
-</div>
-
-<div class="category" *ngFor="let cat of categoryList; let i=index">
-    <div class="reward-box" cdkDragLockAxis="x" cdkDrag>
-        {{cat.title}}
-        I can only be dragged left/right
-        {{i}}
+  
+  <div class="example-container">
+    <h2>Done</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="done"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of categoryList" cdkDrag>{{item.title}}</div>
     </div>
-</div>
+  </div>
