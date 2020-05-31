@@ -9,31 +9,38 @@
 
 ask if multple rewards or unlimited, can be applied to category
 
--- DRAFT EMAIL --
+-- DRAFT EMAIL SUBMIT TO WEB PAGE, AND SEND EMAIL --
 
 Dear Paresh and Chirayu,
 
-Below is a link to the challenge with undo/redo also implemented & my gibhub repo.
+I submitted the information and challenge project to your form.  I have also included the information below inline for your reference.
 
-The challenge web application is published here on firebase:  
-https://miles-challenge-26b35.web.app/
+Take care,
 
-The github source code is here:
-https://github.com/jeromesolomon/miles-challenge
+--Gabriel
 
 
-I  also submitted this information to your form here:
-https://app2.greenhouse.io/tests/c3e8ccf24a8f43d0a25ae60a97b74fbb?utm_medium=email&utm_source=TakeHomeTest
+The challenge web application is published here on firebase: 
+ 
+	https://miles-challenge-26b35.web.app/
 
-Answers to your questions are inline:
-What is the earliest date you can start?
-mid-June would be best for me.  But, I can start earlier if you need help immediately.
+	The github source code is here:
+	https://github.com/jeromesolomon/miles-challenge
 
-Do you need visa sponsorship or transfer? If yes, please state the type of visa you are currently on and would need a transfer for?
-No. I am an American citizen of the USA.
 
-We are expecting candidates to commute to our Redwood City office once the Shelter-In-Place orders are lifted and its safe for employees to do so. Please let us know if this is not possible for you.
-Yes, this is good.  I am looking forward to meeting the other people at Miles in person.
+	I  also submitted this information to your form here:
+	https://app2.greenhouse.io/tests/c3e8ccf24a8f43d0a25ae60a97b74fbb?utm_medium=email&utm_source=TakeHomeTest
+
+Answers to your questions are as follows:
+
+	"What is the earliest date you can start?"
+	mid-June would be best for me.  But, I can start earlier if you need help immediately.
+
+	"Do you need visa sponsorship or transfer? If yes, please state the type of visa you are currently on and would need a transfer for?"
+	No. I am an American citizen of the USA.
+
+	"We are expecting candidates to commute to our Redwood City office once the Shelter-In-Place orders are lifted and its safe for employees to do so. Please let us know if this is not possible for you."
+	Yes, this is good.  I am looking forward to meeting the other people at Miles in person.
 
 
 Have a good day
