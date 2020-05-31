@@ -1,7 +1,13 @@
+
 $lt-gray: #ddd;
-$background-dark: #512DA8;
-$background-light: #9575CD;
-$background-pale: #D1C4E9;
+$background-dark: rgb(45, 168, 55);
+$background-light: rgb(117, 205, 129);
+$background-pale: rgb(241, 224, 197);
+
+#toolBar {
+    background: $background-dark;
+    color: #FFFF;
+}
 
 @mixin zero-margin($pad-up-down, $pad-left-right) {
     margin: 0px auto;
