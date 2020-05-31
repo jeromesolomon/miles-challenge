@@ -69,6 +69,21 @@ export class RewardCategoriesComponent implements OnInit {
 
     // remove the element
     currentArray.splice(rewardIndex,1);
+
+    let action = new DragAction;
+
+    action.Set("remove", Number(categoryIndex), Number(categoryIndex), rewardIndex, rewardIndex);
+
+  //
+  // push action to undo stack
+  //
+  this.undoStack.push(action);
+
+  // enable undo button
+  this.undoButtonEnable = true;
+
+  console.log("undoStack = ", this.undoStack);
+  console.log("redoStack = ", this.redoStack);
     
 
   }
