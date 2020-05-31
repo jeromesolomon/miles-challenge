@@ -59,31 +59,33 @@ export class RewardCategoriesComponent implements OnInit {
 
     // the first list is the main rewards list
     let currentArray = this.categoryList[categoryIndex].rewardList;
-    let targetArray = this.categoryList[0].rewardList;
+
+    // get and store which reward id it came from into set command
+    let removedReward = currentArray[rewardIndex];
     
-    let currentIndex = rewardIndex;
-    let targetIndex = targetArray.length; // put into last element
-    
-    console.log("targetArray = ",targetArray);
-    console.log("currentArray = ",currentArray);
+    console.log("removedReward = ", removedReward);
+    console.log("currentArray = ", currentArray);
+
+    // use original reward id as index (this could/should change if id's mean something different in the future)
+    let originalRewardIndex = removedReward.id;
 
     // remove the element
     currentArray.splice(rewardIndex,1);
 
     let action = new DragAction;
 
-    action.Set("remove", Number(categoryIndex), Number(categoryIndex), rewardIndex, rewardIndex);
+    action.Set("remove", Number(categoryIndex), Number(categoryIndex), originalRewardIndex, originalRewardIndex);
 
-  //
-  // push action to undo stack
-  //
-  this.undoStack.push(action);
+    //
+    // push action to undo stack
+    //
+    this.undoStack.push(action);
 
-  // enable undo button
-  this.undoButtonEnable = true;
+    // enable undo button
+    this.undoButtonEnable = true;
 
-  console.log("undoStack = ", this.undoStack);
-  console.log("redoStack = ", this.redoStack);
+    console.log("undoStack = ", this.undoStack);
+    console.log("redoStack = ", this.redoStack);
     
 
   }
@@ -148,13 +150,13 @@ export class RewardCategoriesComponent implements OnInit {
 
     }
 
-    //
-    // push action to undo stack
-    //
-    this.undoStack.push(action);
+        //
+        // push action to undo stack
+        //
+        this.undoStack.push(action);
 
-    // enable undo button
-    this.undoButtonEnable = true;
+        // enable undo button
+        this.undoButtonEnable = true;
 
     console.log("undoStack = ", this.undoStack);
     console.log("redoStack = ", this.redoStack);
