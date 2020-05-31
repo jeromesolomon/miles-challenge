@@ -1,9 +1,22 @@
 <div class="controls">
-  <button class="controlButton" (click)="undoButton($event)"><i class="fa fa-undo fa-lg"></i> Undo</button>
-  <button class="controlButton" (click)="redoButton($event)"><i class="fa fa-repeat fa-lg"></i> Redo</button>
+
+  <span *ngIf="undoButtonEnable; else elseBlockUndo">
+      <button class="controlButton" (click)="undoButton($event)"><i class="fa fa-undo fa-lg"></i> Undo</button>
+  </span>
+  <ng-template #elseBlockUndo>
+      <button class="controlButton" disabled><i class="fa fa-undo fa-lg"></i> Undo</button>
+  </ng-template>
+
+  <span *ngIf="redoButtonEnable; else elseBlockRedo">
+    <button class="controlButton" (click)="redoButton($event)"><i class="fa fa-repeat fa-lg"></i> Redo</button>
+  </span>
+  <ng-template #elseBlockRedo>
+    <button class="controlButton" disabled><i class="fa fa-repeat fa-lg"></i> Redo</button>
+  </ng-template>
+  
 </div>
 
-<div>
+<div id="headerDiv">
   <div class="reward-header-container"><h2>Rewards</h2></div>
   <div class="category-header-container"><h2>Categories</h2></div>
 </div>
@@ -13,7 +26,7 @@
   
     <!-- display header for each column -->
     <div *ngIf="(i==0); else elseBlock"><h2>&nbsp;</h2></div>
-    <ng-template #elseBlock><h2>{{category.title}}</h2></ng-template>
+    <ng-template #elseBlock><span id="categoryTitle"><h2>{{category.title}}</h2></span></ng-template>
     
     <!-- draggable items -->
     <div

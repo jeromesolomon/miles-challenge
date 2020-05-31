@@ -25,6 +25,10 @@ export class RewardCategoriesComponent implements OnInit {
   undoStack: Stack<DragAction>;
   redoStack: Stack<DragAction>;
 
+  // undoButton, redoButton enable/disable
+  undoButtonEnable: boolean;
+  redoButtonEnable: boolean;
+
   constructor(private rewardService: RewardService) { }
 
   ngOnInit(): void {
@@ -36,6 +40,10 @@ export class RewardCategoriesComponent implements OnInit {
     // create the undo and redo stacks
     this.undoStack = new Stack<DragAction>();
     this.redoStack = new Stack<DragAction>();
+
+    // set undo and redo to false to start
+    this.undoButtonEnable = false;
+    this.redoButtonEnable = false;
 
   }
 
@@ -113,13 +121,16 @@ export class RewardCategoriesComponent implements OnInit {
       // case 3. remove the reward, if it is being copied back into the main reward list
       if ((event.previousContainer.id != "0") && (event.container.id == "0")) {
         event.previousContainer.data.splice(event.previousIndex,1);
-        action.Set("splice", Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
+        action.Set("remove", Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
       }
 
       //
       // push action to undo stack
       //
       this.undoStack.push(action);
+
+      // enable undo button
+      this.undoButtonEnable = true;
 
       console.log("undoStack = ", this.undoStack);
       console.log("redoStack = ", this.redoStack);
@@ -155,6 +166,16 @@ export class RewardCategoriesComponent implements OnInit {
 
     }
 
+    // if the stack size is zero, disable the undo button
+    if (this.undoStack.size == 0) {
+      // disable the undo button 
+      this.undoButtonEnable = false;
+    }
+
+    // enable redo when an undo occurs
+    this.redoButtonEnable = true;
+    
+
   }
 
   //
@@ -177,12 +198,48 @@ export class RewardCategoriesComponent implements OnInit {
 
     switch(operation) {
 
-      // for copy, we just remove the reward from the current container to undo the operation
+      // for copy, we remove the reward from the current container to undo the operation
       case "copyArrayItem": {
 
         this.categoryList[action.currentContainerIndex].rewardList.splice(action.currentIndex,1);
 
         break;
+      }
+
+      // for move, we reverse the operations order and swap the rewards
+      case "transferArrayItem": {
+
+        let previousIndex = action.previousIndex;
+        let currentIndex = action.currentIndex;
+
+        let temp: Reward;
+
+        // swap the items
+        temp = this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex];
+
+        this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex] = 
+          this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex];
+
+        // console.log("temp =", temp);
+
+        // if the location was empty previously, then delete the item that is there
+        if (temp == undefined) {
+          this.categoryList[action.currentContainerIndex].rewardList.splice(action.currentIndex,1);
+        } else {
+          this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex] = temp;
+        }
+
+        break;
+      }
+
+      // for remove, we copy an item back into the previous category from the reward list
+      case "remove": {
+
+        this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex] = 
+          this.categoryList[0].rewardList[action.currentIndex];
+
+        break;
+
       }
 
       default: { 
