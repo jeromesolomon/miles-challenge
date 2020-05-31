@@ -59,31 +59,33 @@ export class RewardCategoriesComponent implements OnInit {
 
     // the first list is the main rewards list
     let currentArray = this.categoryList[categoryIndex].rewardList;
-    let targetArray = this.categoryList[0].rewardList;
+
+    // get and store which reward id it came from into set command
+    let removedReward = currentArray[rewardIndex];
     
-    let currentIndex = rewardIndex;
-    let targetIndex = targetArray.length; // put into last element
-    
-    console.log("targetArray = ",targetArray);
-    console.log("currentArray = ",currentArray);
+    console.log("removedReward = ", removedReward);
+    console.log("currentArray = ", currentArray);
+
+    // use original reward id as index (this could/should change if id's mean something different in the future)
+    let originalRewardIndex = removedReward.id;
 
     // remove the element
     currentArray.splice(rewardIndex,1);
 
     let action = new DragAction;
 
-    action.Set("remove", Number(categoryIndex), Number(categoryIndex), rewardIndex, rewardIndex);
+    action.Set("remove", 0, Number(categoryIndex), originalRewardIndex, rewardIndex);
 
-  //
-  // push action to undo stack
-  //
-  this.undoStack.push(action);
+    //
+    // push action to undo stack
+    //
+    this.undoStack.push(action);
 
-  // enable undo button
-  this.undoButtonEnable = true;
+    // enable undo button
+    this.undoButtonEnable = true;
 
-  console.log("undoStack = ", this.undoStack);
-  console.log("redoStack = ", this.redoStack);
+    console.log("undoStack = ", this.undoStack);
+    console.log("redoStack = ", this.redoStack);
     
 
   }
@@ -102,7 +104,12 @@ export class RewardCategoriesComponent implements OnInit {
       console.log("move");
 
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+     
       action.Set("moveItemInArray",Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
+
+      // push action to undo stack, and enable the undo button
+      this.undoStack.push(action);
+      this.undoButtonEnable = true;
 
     } else {
 
@@ -116,7 +123,6 @@ export class RewardCategoriesComponent implements OnInit {
       console.log("categoryList = ", this.categoryList);
 
       
-      
 
       //
       // there are 3 cases and behaviors for the rewards
@@ -124,37 +130,49 @@ export class RewardCategoriesComponent implements OnInit {
 
       // case 1. copy the reward if it is being dragged from the main reward list, to a category
       if ((event.previousContainer.id == "0") && (event.container.id != "0")) {
+
         copyArrayItem(event.previousContainer.data,
           event.container.data,
           event.previousIndex,
           event.currentIndex);
+
         action.Set("copyArrayItem",Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
+      
+        // push action to undo stack, and enable the undo button
+        this.undoStack.push(action);
+        this.undoButtonEnable = true;
       }
 
       // case 2. move/transfer the reward if it is being dragged from the main reward list, to a category
       if ((event.previousContainer.id != "0") && (event.container.id != "0")) {
+
         transferArrayItem(event.previousContainer.data,
           event.container.data,
           event.previousIndex,
           event.currentIndex);
-          action.Set("transferArrayItem", Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
+
+        action.Set("transferArrayItem", Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
+    
+        // push action to undo stack, and enable the undo button
+        this.undoStack.push(action);
+        this.undoButtonEnable = true;
+
       }
 
       // case 3. remove the reward, iff it is not being copied back into the main reward list
       if ((event.previousContainer.id != "0") && (event.container.id == "0")) {
+
         event.previousContainer.data.splice(event.previousIndex,1);
         action.Set("remove", Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
+      
+        // push action to undo stack, and enable the undo button
+        this.undoStack.push(action);
+        this.undoButtonEnable = true;
       }
 
     }
 
-    //
-    // push action to undo stack
-    //
-    this.undoStack.push(action);
-
-    // enable undo button
-    this.undoButtonEnable = true;
+        
 
     console.log("undoStack = ", this.undoStack);
     console.log("redoStack = ", this.redoStack);
@@ -302,8 +320,10 @@ export class RewardCategoriesComponent implements OnInit {
       // for remove, we copy an item back into the previous category from the reward list
       case "remove": {
 
-        this.categoryList[action.previousContainerIndex].rewardList.push(
-          this.categoryList[0].rewardList[action.currentIndex]);
+        console.log("action = ", action);
+
+        this.categoryList[action.currentContainerIndex].rewardList.push(
+          this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex]);
 
         break;
 
@@ -385,7 +405,9 @@ export class RewardCategoriesComponent implements OnInit {
       // for remove, we delete an item from the reward list
       case "remove": {
 
-        this.categoryList[action.previousContainerIndex].rewardList.splice(action.previousIndex,1);
+        
+        console.log("action = ", action);
+        this.categoryList[action.currentContainerIndex].rewardList.splice(action.currentIndex,1);
 
         break;
 
