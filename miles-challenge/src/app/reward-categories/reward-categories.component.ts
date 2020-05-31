@@ -227,11 +227,30 @@ export class RewardCategoriesComponent implements OnInit {
         break;
       }
 
+      case "moveItemInArray": {
+
+        let temp: Reward;
+
+        // swap the items
+        temp = this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex];
+
+        this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex] = 
+          this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex];
+
+        // console.log("temp =", temp);
+
+        // if the location was empty previously, then delete the item that is there
+        if (temp == undefined) {
+          this.categoryList[action.currentContainerIndex].rewardList.splice(action.currentIndex,1);
+        } else {
+          this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex] = temp;
+        }
+
+        break;
+      }
+
       // for move, we reverse the operations order and swap the rewards
       case "transferArrayItem": {
-
-        let previousIndex = action.previousIndex;
-        let currentIndex = action.currentIndex;
 
         let temp: Reward;
 
