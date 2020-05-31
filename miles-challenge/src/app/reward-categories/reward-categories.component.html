@@ -48,8 +48,8 @@
           </button>
           <ng-template #elseBlock><button mat-button class="close-button-disabled" disabled></button></ng-template>
        </mat-card-actions>
-        <mat-card-title>{{reward.name}}</mat-card-title>
-        <img class="categoryImage" src="/assets/images/reward1.png" height=40 width=40>
+        {{reward.name}}
+        <img class="rewardImage" src="/assets/images/reward{{reward.id}}.png" height=40 width=40>
       </mat-card>
   </div>
 

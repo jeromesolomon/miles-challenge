@@ -7,7 +7,8 @@ $primary-color-dark:   rgb(17, 75, 12);
 $primary-color:        rgb(30, 116, 52);
 $primary-color-light:  rgb(238, 192, 123);
 
-
+// height of category background
+$categoryHeight: 650px;
 
 .controls {
   background: $primary-color-light;
@@ -122,7 +123,7 @@ $primary-color-light:  rgb(238, 192, 123);
 
 .category-list {
   border: solid 1px $background-light;
-  min-height: 450px;
+  min-height: $categoryHeight;
   background: $lt-gray;
   border-radius: 4px;
   overflow: hidden;

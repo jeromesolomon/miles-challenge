@@ -1,4 +1,5 @@
 export class Reward {
-    title: string;
     id: number;
+    name: string;
+    image: string;
 }

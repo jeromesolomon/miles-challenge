@@ -12,31 +12,31 @@ export const CATEGORYLIST: Category[] =
   {
     "id": 1,
     "name": "Walking",
-    "image": "walking",
+    "image": "category-walking",
     "rewardList": []
   },
   {
     "id": 2,
     "name": "Bus",
-    "image": "bus",
+    "image": "category-bus",
     "rewardList": []
   },
   {
     "id": 3,
     "name": "Biking",
-    "image": "biking",
+    "image": "category-biking",
     "rewardList": []
   },
   {
     "id": 4,
     "name": "Train",
-    "image": "train",
+    "image": "category-train",
     "rewardList": []
   },
   {
     "id": 5,
     "name": "Plane",
-    "image": "plane",
+    "image": "category-plane",
     "rewardList": []
   }
 ];
