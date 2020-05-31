@@ -10,3 +10,4 @@ npm-debug.log
 # firebase files to ignore
 .firebase*
 firebase.json
+firebase-*.log
