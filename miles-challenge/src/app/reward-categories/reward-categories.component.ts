@@ -94,8 +94,15 @@ export class RewardCategoriesComponent implements OnInit {
   //
   dropReward(event: CdkDragDrop<string[]>) {
 
+    // action to save the current operation for the undo/redo stacks
+    let action = new DragAction;
+
     if (event.previousContainer === event.container) {
+
+      console.log("move");
+
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      action.Set("moveItemInArray",Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
 
     } else {
 
@@ -108,7 +115,7 @@ export class RewardCategoriesComponent implements OnInit {
 
       console.log("categoryList = ", this.categoryList);
 
-      let action = new DragAction;
+      
       
 
       //
@@ -139,19 +146,18 @@ export class RewardCategoriesComponent implements OnInit {
         action.Set("remove", Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
       }
 
-      //
-      // push action to undo stack
-      //
-      this.undoStack.push(action);
-
-      // enable undo button
-      this.undoButtonEnable = true;
-
-      console.log("undoStack = ", this.undoStack);
-      console.log("redoStack = ", this.redoStack);
-
-
     }
+
+    //
+    // push action to undo stack
+    //
+    this.undoStack.push(action);
+
+    // enable undo button
+    this.undoButtonEnable = true;
+
+    console.log("undoStack = ", this.undoStack);
+    console.log("redoStack = ", this.redoStack);
 
   }
 
@@ -250,8 +256,8 @@ export class RewardCategoriesComponent implements OnInit {
       // for remove, we copy an item back into the previous category from the reward list
       case "remove": {
 
-        this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex] = 
-          this.categoryList[0].rewardList[action.currentIndex];
+        this.categoryList[action.previousContainerIndex].rewardList.push(
+          this.categoryList[0].rewardList[action.currentIndex]);
 
         break;
 
