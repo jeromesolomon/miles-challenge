@@ -11,16 +11,26 @@ $primary-color-light:  #D1C4E9;
 }
 
 .controlButton {
-  margin: 0px 10px 0px 10px;
-  padding: 5px;
+  margin: 0px 10px;
+  padding: 5px 20px;
+}
+
+#headerDiv {
+  height: 40px;
+}
+
+#categoryTitle {
+  text-align: center;
 }
 
 .reward-header-container {
   width: 100px;
   max-width: 100%;
-  margin: 0px 25px 25px 0px;
   display: inline-block;
   vertical-align: top;
+  margin: 0px auto;
+  padding: 0px 10px;
+
 }
 
 .category-header-container {

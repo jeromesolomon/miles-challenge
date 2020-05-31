@@ -16,7 +16,7 @@
   
 </div>
 
-<div>
+<div id="headerDiv">
   <div class="reward-header-container"><h2>Rewards</h2></div>
   <div class="category-header-container"><h2>Categories</h2></div>
 </div>
@@ -26,7 +26,7 @@
   
     <!-- display header for each column -->
     <div *ngIf="(i==0); else elseBlock"><h2>&nbsp;</h2></div>
-    <ng-template #elseBlock><h2>{{category.title}}</h2></ng-template>
+    <ng-template #elseBlock><span id="categoryTitle"><h2>{{category.title}}</h2></span></ng-template>
     
     <!-- draggable items -->
     <div
