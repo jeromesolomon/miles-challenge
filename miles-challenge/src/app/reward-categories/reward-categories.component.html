@@ -26,7 +26,11 @@
   
     <!-- display header for each column -->
     <div *ngIf="(i==0); else elseBlock"><h2>&nbsp;</h2></div>
-    <ng-template #elseBlock><span id="categoryTitle"><h2>{{category.title}}</h2></span></ng-template>
+    <ng-template #elseBlock>
+      <span class="categoryTitle">
+        <img class="categoryImage" src="/assets/images/{{category.image}}.png" height=40 width=40>
+      </span>
+    </ng-template>
     
     <!-- draggable items -->
     <div
@@ -44,7 +48,8 @@
           </button>
           <ng-template #elseBlock><button mat-button class="close-button-disabled" disabled></button></ng-template>
        </mat-card-actions>
-        <mat-card-title>{{reward.title}}</mat-card-title>
+        <mat-card-title>{{reward.name}}</mat-card-title>
+        <img class="categoryImage" src="/assets/images/reward1.png" height=40 width=40>
       </mat-card>
   </div>
 

@@ -1,7 +1,9 @@
 import { Reward } from './Reward';
 
 export class Category {
-    title: string;
     id: number;
+    name: string;
+    image: string;
     rewardList: Reward[];
+
 }
