@@ -140,7 +140,7 @@ export class RewardCategoriesComponent implements OnInit {
           action.Set("transferArrayItem", Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
       }
 
-      // case 3. remove the reward, if it is being copied back into the main reward list
+      // case 3. remove the reward, iff it is not being copied back into the main reward list
       if ((event.previousContainer.id != "0") && (event.container.id == "0")) {
         event.previousContainer.data.splice(event.previousIndex,1);
         action.Set("remove", Number(event.previousContainer.id), Number(event.container.id), event.previousIndex, event.currentIndex);
@@ -206,6 +206,33 @@ export class RewardCategoriesComponent implements OnInit {
   redoButton(event: Event) {
 
     console.log("redo");
+
+    if (this.redoStack.size > 0) {
+
+      let lastAction = new DragAction;
+
+      // get the last action
+      lastAction = this.redoStack.top;
+
+      // redo this action
+      this.redoAction(lastAction);
+
+      // push this action on the undo stack
+      this.undoStack.push(lastAction);
+
+      // pop the action off the redo stack
+      this.redoStack.pop();
+
+    }
+
+    // if the stack size is zero, disable the redo button
+    if (this.redoStack.size == 0) {
+      // disable the undo button 
+      this.redoButtonEnable = false;
+    }
+
+    // enable undo when a redo occurs
+    this.undoButtonEnable = true;
 
   }
 
@@ -292,5 +319,91 @@ export class RewardCategoriesComponent implements OnInit {
 
   }
 
+  //
+  // Func: redoAction
+  // Desc: redo the action
+  //
+  private redoAction(action: DragAction) {
+
+    let operation = action.operation;
+
+    switch(operation) {
+
+      // for copy, we simply copy the item to its current column
+      case "copyArrayItem": {
+
+        this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex] = 
+          this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex];
+
+        break;
+
+      }
+
+      case "moveItemInArray": {
+
+        let temp: Reward;
+
+        // swap the items
+        temp = this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex];
+
+          this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex] =
+            this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex];
+        // console.log("temp =", temp);
+
+        // if the location was empty previously, then delete the item that is there
+        if (temp == undefined) {
+          this.categoryList[action.previousContainerIndex].rewardList.splice(action.previousIndex,1);
+        } else {
+          this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex] = temp;
+        }
+
+        break;
+      }
+
+      // for move, we reverse the operations order and swap the rewards
+      case "transferArrayItem": {
+
+        let temp: Reward;
+
+        // swap the items
+        temp = this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex];
+
+          this.categoryList[action.currentContainerIndex].rewardList[action.currentIndex] =
+            this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex];
+        // console.log("temp =", temp);
+
+        // if the location was empty previously, then delete the item that is there
+        if (temp == undefined) {
+          this.categoryList[action.previousContainerIndex].rewardList.splice(action.previousIndex,1);
+        } else {
+          this.categoryList[action.previousContainerIndex].rewardList[action.previousIndex] = temp;
+        }
+
+        break;
+      }
+
+      // for remove, we delete an item from the reward list
+      case "remove": {
+
+        this.categoryList[action.previousContainerIndex].rewardList.splice(action.previousIndex,1);
+
+        break;
+
+      }
+
+      default: { 
+        
+        console.log("ERROR: Unknown operation");
+        break; 
+      
+      }
+    }
+
+    // if redo stack is empty after redo, disable the button
+    if (this.redoStack.size == 0) {
+      this.redoButtonEnable = false;
+    }
+
+  }
 
 }
