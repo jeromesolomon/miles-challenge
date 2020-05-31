@@ -3,23 +3,28 @@ import { Reward } from './Reward';
 export const REWARDLIST: Reward[] = 
 [
     {
-      "title": "R1",
-      "id": 0
+      "id": 0,
+      "name": "Reward1",
+      "image": "reward1"
     },
     {
-      "title": "R2",
-      "id": 1
+      "id": 1,
+      "name": "Reward2",
+      "image": "reward2"
     },
     {
-      "title": "R3",
-      "id": 2
+      "id": 2,
+      "name": "Reward3",
+      "image": "reward3"
     },
     {
-      "title": "R4",
-      "id": 3
+      "id": 3,
+      "name": "Reward4",
+      "image": "reward4"
     },
     {
-      "title": "R5",
-      "id": 4
+      "id": 4,
+      "name": "Reward5",
+      "image": "reward5"
     }
   ];

@@ -4,33 +4,39 @@ import { Category } from './Category';
 export const CATEGORYLIST: Category[] = 
 [
   {
-    "title": "",
     "id": 0,
+    "name": "",
+    "image": "",
     "rewardList": REWARDLIST
   },
   {
-    "title": "C1",
     "id": 1,
+    "name": "Walking",
+    "image": "category-walking",
     "rewardList": []
   },
   {
-    "title": "C2",
     "id": 2,
+    "name": "Bus",
+    "image": "category-bus",
     "rewardList": []
   },
   {
-    "title": "C3",
     "id": 3,
+    "name": "Biking",
+    "image": "category-biking",
     "rewardList": []
   },
   {
-    "title": "C4",
     "id": 4,
+    "name": "Train",
+    "image": "category-train",
     "rewardList": []
   },
   {
-    "title": "C5",
     "id": 5,
+    "name": "Plane",
+    "image": "category-plane",
     "rewardList": []
   }
 ];
