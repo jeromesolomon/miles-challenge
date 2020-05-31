@@ -1,9 +1,13 @@
 
 $lt-gray: #ddd;
-$background-dark: #512DA8;
-$background-light: #9575CD;
-$background-pale: #D1C4E9;
-$primary-color-light:  #D1C4E9;
+$background-dark: rgb(45, 168, 55);
+$background-light: rgb(117, 205, 129);
+$background-pale: rgb(241, 224, 197);
+$primary-color-dark:   rgb(17, 75, 12);
+$primary-color:        rgb(30, 116, 52);
+$primary-color-light:  rgb(238, 192, 123);
+
+
 
 .controls {
   background: $primary-color-light;
@@ -57,7 +61,7 @@ $primary-color-light:  #D1C4E9;
 }
 
 .reward-card {
-  background: $background-pale;
+  background: $background-light;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -111,7 +115,7 @@ $primary-color-light:  #D1C4E9;
 
 .category-list {
   border: solid 1px $background-light;
-  min-height: 400px;
+  min-height: 450px;
   background: $lt-gray;
   border-radius: 4px;
   overflow: hidden;
